@@ -1,0 +1,5 @@
+langchain~=0.1.19
+telebot~=0.0.5
+requests~=2.31.0
+langchain-community~=0.0.38
+gigachat~=0.1.23
