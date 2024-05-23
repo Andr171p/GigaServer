@@ -4,11 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4f1353a-c26c-44fd-ae33-056884a1a056" name="Changes" comment="server version 1">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="f4f1353a-c26c-44fd-ae33-056884a1a056" name="Changes" comment="server version 1.1.1">
+      <change afterPath="$PROJECT_DIR$/database/feedback_db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/manage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/llm/model/auth_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/llm/model/giga_chat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/llm/prompt/system/strana_development.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/llm/prompt/template.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/llm/prompt/user/copywriter.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/llm/prompt/user/corrector.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/llm/prompt/user/email.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/llm/prompt/user/redactor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/llm/prompt/user/rewriter.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/telegram_bot/auth_token.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/telegram_bot/bot/chats.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/telegram_bot/bot/message_interface.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/telegram_bot/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/preprocessing_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GiGaChatTeleBot/database/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/GiGaChatTeleBot/database/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GigaChatTeleBot" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,11 +113,29 @@
       <option name="project" value="LOCAL" />
       <updated>1716457171368</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="server version 1.1">
+      <option name="closed" value="true" />
+      <created>1716457508393</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716457508393</updated>
+    </task>
+    <task id="LOCAL-00003" summary="server version 1.1.1">
+      <option name="closed" value="true" />
+      <created>1716457850618</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716457850618</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="server version 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="server version 1" />
+    <MESSAGE value="server version 1.1" />
+    <MESSAGE value="server version 1.1.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="server version 1.1.1" />
   </component>
 </project>
