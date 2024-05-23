@@ -25,8 +25,8 @@ giga_chat_bot.create_giga_model()
 
 # init prompts dict:
 prompts = join_prompt(
-    system_path=r"/app/GiGaChatTeleBot/llm/prompt/system/strana_development.txt",
-    user_directory_path=r"/app/GiGaChatTeleBot/llm/prompt/user"
+    system_path=r"/app/llm/prompt/system/strana_development.txt",
+    user_directory_path=r"/app/llm/prompt/user"
 )
 
 
