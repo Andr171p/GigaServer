@@ -3,12 +3,12 @@ from telebot import types
 import time
 import requests
 from langchain.memory import ConversationBufferMemory
-from telegram_bot.auth_token import bot_token
-from telegram_bot.bot.message_interface import MessageView
-from llm.model.giga_chat import GiGaChatBot
-from llm.prompt.template import join_prompt
-from telegram_bot.config import get_feedback_access_id
-from database.manage import db_add_user_info, db_add_comments, check_user_id_exists, db_add_mark, get_db_data_to_array
+from GiGaChatTeleBot.telegram_bot.auth_token import bot_token
+from GiGaChatTeleBot.telegram_bot.bot.message_interface import MessageView
+from GiGaChatTeleBot.llm.model.giga_chat import GiGaChatBot
+from GiGaChatTeleBot.llm.prompt.template import join_prompt
+from GiGaChatTeleBot.telegram_bot.config import get_feedback_access_id
+from GiGaChatTeleBot.database.manage import db_add_user_info, db_add_comments, check_user_id_exists, db_add_mark, get_db_data_to_array
 
 # create telegram bot:
 bot = telebot.TeleBot(bot_token)
@@ -25,8 +25,8 @@ giga_chat_bot.create_giga_model()
 
 # init prompts dict:
 prompts = join_prompt(
-    system_path=r"/app/GigaChatTeleBot/llm/prompt/system/strana_development.txt",
-    user_directory_path=r"/app/GigaChatTeleBot/llm/prompt/user"
+    system_path=r"/app/GiGaChatTeleBot/llm/prompt/system/strana_development.txt",
+    user_directory_path=r"/app/GiGaChatTeleBot/llm/prompt/user"
 )
 
 
