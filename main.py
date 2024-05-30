@@ -1,17 +1,25 @@
 import telebot
 from telebot import types
+
 import time
 import requests
+
 from langchain.memory import ConversationBufferMemory
+
 from telegram_bot.auth_token import bot_token
 from telegram_bot.bot.message_interface import MessageView
+from telegram_bot.config import get_feedback_access_id
+
 from llm.model.giga_chat import GiGaChatBot
 from llm.prompt.template import join_prompt
-from telegram_bot.config import get_feedback_access_id
-from database.manage import db_add_user_info, db_add_comments, check_user_id_exists, get_db_data_to_array
+
+from database.manage import add_comment, see_comments
 
 # create telegram bot:
 bot = telebot.TeleBot(bot_token)
+
+# init comments:
+comments = []
 
 # user menu memory:
 user_menu = {}
@@ -76,27 +84,17 @@ def feedback_menu(message):
                                       "а также поставить оценку нашему проекту", reply_markup=markup)
     user_menu[message.chat.id] = "main"
 
-    user_id = message.from_user.id
-    user_name = message.from_user.first_name
-    user_surname = message.from_user.last_name
-    username = message.from_user.username
-
-    if not check_user_id_exists(user_id=user_id):
-        db_add_user_info(
-            user_id=user_id,
-            user_name=user_name,
-            user_surname=user_surname,
-            username=username
-        )
-
 
 @bot.message_handler(func=lambda message: message.text == 'Смотреть комментарии')
 def view_comments(message):
-    comments_data = get_db_data_to_array()
+    comments_data = see_comments()
+    if len(comments_data) == 0:
+        bot.send_message(message.chat.id, "Пока нет комментариев...")
     for row in comments_data:
         time.sleep(3)
-        bot.send_message(message.chat.id, f"Пользователь: {row[0]}\n"
-                                          f"Комментарий: {row[1]}\n")
+        bot.send_message(message.chat.id, f"*Пользователь:* {row[0]}\n"
+                                          f"*Комментарий:* {row[1]}\n",
+                         parse_mode='Markdown')
 
 
 @bot.message_handler(func=lambda message: message.text == 'Оставить отзыв')
@@ -107,9 +105,15 @@ def write_comment(message):
 
 def save_comment(message):
     user_id = message.chat.id
-    db_add_comments(
-        user_id=user_id,
-        user_comment=message.text
+    username = message.from_user.username
+    comments_data = {
+        "user_id": user_id,
+        "username": username,
+        "comment": message.text
+    }
+    comments.append(comments_data)
+    add_comment(
+        data=comments
     )
     bot.send_message(user_id, "Благодарим за оставленный отзыв")
 
