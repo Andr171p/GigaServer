@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4f1353a-c26c-44fd-ae33-056884a1a056" name="Changes" comment="server version 1.1.1++ feedback">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="f4f1353a-c26c-44fd-ae33-056884a1a056" name="Changes" comment="server version 1.1.1++ feedback_view">
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717090696709</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="server version 1.1.1++ feedback_view">
+      <option name="closed" value="true" />
+      <created>1717145780082</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1717145780082</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -166,6 +174,7 @@
     <MESSAGE value="server version 1.1.1++" />
     <MESSAGE value="server version 1.1.1++ new name" />
     <MESSAGE value="server version 1.1.1++ feedback" />
-    <option name="LAST_COMMIT_MESSAGE" value="server version 1.1.1++ feedback" />
+    <MESSAGE value="server version 1.1.1++ feedback_view" />
+    <option name="LAST_COMMIT_MESSAGE" value="server version 1.1.1++ feedback_view" />
   </component>
 </project>

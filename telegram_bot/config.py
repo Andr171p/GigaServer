@@ -1,6 +1,7 @@
 feedback_access = {
     1779915071: "Andr17k",
-    1075260125: "bashhhmachok"
+    1075260125: "bashhhmachok",
+    429564531: "@Denis_KD"
 }
 
 

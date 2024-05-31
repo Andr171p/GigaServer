@@ -74,7 +74,10 @@ def feedback_menu(message):
     comments_view_button = types.KeyboardButton("Смотреть комментарии")
     back_button = types.KeyboardButton("Назад ↩")
     # check user_id for view comments access:
-    markup.add(comments_button, comments_view_button, back_button)
+    if message.from_user.id in get_feedback_access_id():
+        markup.add(comments_button, comments_view_button, back_button)
+    else:
+        markup.add(comments_button, back_button)
 
     bot.send_message(message.chat.id, "Здесь вы можете предложить свои идеи по улучшению проекта, \n"
                                       "а также поставить оценку нашему проекту", reply_markup=markup)
