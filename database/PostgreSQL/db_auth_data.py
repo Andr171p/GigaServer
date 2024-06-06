@@ -1,0 +1,5 @@
+db_name = "feedback_db"
+user_name = "komerc_user"
+password = "fWDRMZdQRWRsTBkLnxmGpmEXVAjirpAy"
+host = "dpg-cnmr6r8cmk4c73aj9jl0-a.oregon-postgres.render.com"
+port = "5432"

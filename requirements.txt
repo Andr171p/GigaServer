@@ -3,3 +3,4 @@ telebot~=0.0.5
 requests~=2.31.0
 langchain-community~=0.0.38
 gigachat~=0.1.23
+psycopg2~=2.9.9

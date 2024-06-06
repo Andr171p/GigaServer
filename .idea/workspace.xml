@@ -4,14 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4f1353a-c26c-44fd-ae33-056884a1a056" name="Changes" comment="server version 1.1.1++ feedback_view+">
+    <list default="true" id="f4f1353a-c26c-44fd-ae33-056884a1a056" name="Changes" comment="server version 1.1.1++ feedback_view++">
+      <change afterPath="$PROJECT_DIR$/database/PostgreSQL/db_auth_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/PostgreSQL/db_manage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/manage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/llm/model/giga_chat.py" beforeDir="false" afterPath="$PROJECT_DIR$/llm/model/giga_chat.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -172,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717183267773</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="server version 1.1.1++ feedback_view++">
+      <option name="closed" value="true" />
+      <created>1717411405068</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1717411405068</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -185,6 +205,7 @@
     <MESSAGE value="server version 1.1.1++ feedback" />
     <MESSAGE value="server version 1.1.1++ feedback_view" />
     <MESSAGE value="server version 1.1.1++ feedback_view+" />
-    <option name="LAST_COMMIT_MESSAGE" value="server version 1.1.1++ feedback_view+" />
+    <MESSAGE value="server version 1.1.1++ feedback_view++" />
+    <option name="LAST_COMMIT_MESSAGE" value="server version 1.1.1++ feedback_view++" />
   </component>
 </project>

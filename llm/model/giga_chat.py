@@ -1,10 +1,12 @@
-# from langchain.chat_models.gigachat import GigaChat
 from langchain_community.chat_models.gigachat import GigaChat
 from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferMemory
 from langchain.schema import HumanMessage, SystemMessage
+
 import base64
+
 from llm.model.auth_data import client_secret, client_id
+
 from utils.preprocessing_data import txt_to_str
 
 

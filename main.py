@@ -13,7 +13,7 @@ from telegram_bot.config import get_feedback_access_id
 from llm.model.giga_chat import GiGaChatBot
 from llm.prompt.template import join_prompt
 
-from database.manage import add_comment, see_comments
+from database.PostgreSQL.db_manage import CommentsDB, upload_feedback_data
 
 # create telegram bot:
 bot = telebot.TeleBot(bot_token)
@@ -40,6 +40,9 @@ prompts = join_prompt(
 
 # init message interface:
 message_view = MessageView()
+
+# init class for work with database:
+comments_db = CommentsDB()
 
 
 @bot.message_handler(commands=['start'])
@@ -86,14 +89,18 @@ def feedback_menu(message):
 
 @bot.message_handler(func=lambda message: message.text == 'Смотреть комментарии')
 def view_comments(message):
-    comments_data = see_comments()
+    comments_db.connect_db()
+    comments_data = comments_db.get_db_data()
     if len(comments_data) == 0:
         bot.send_message(message.chat.id, "Пока нет комментариев...")
     for row in comments_data:
         time.sleep(1)
-        bot.send_message(message.chat.id, f"*Пользователь:* {row[0]}\n"
-                                          f"*Комментарий:* {row[1]}\n",
-                         parse_mode='Markdown')
+        bot.send_message(
+            message.chat.id,
+            f"*Пользователь:* {row[0]}\n"
+            f"*Комментарий:* {row[1]}\n",
+            parse_mode='Markdown'
+        )
 
 
 @bot.message_handler(func=lambda message: message.text == 'Оставить отзыв')
@@ -105,15 +112,13 @@ def write_comment(message):
 def save_comment(message):
     user_id = message.chat.id
     username = message.from_user.username
-    comments_data = {
-        "user_id": user_id,
-        "username": username,
-        "comment": message.text
-    }
-    comments.append(comments_data)
-    add_comment(
-        data=comments
+
+    upload_feedback_data(
+        user_id=user_id,
+        username=username,
+        comment_text=message.text
     )
+
     bot.send_message(user_id, "Благодарим за оставленный отзыв")
 
 
