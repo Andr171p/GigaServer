@@ -97,8 +97,8 @@ def view_comments(message):
         time.sleep(1)
         bot.send_message(
             message.chat.id,
-            f"*Пользователь:* {row[0]}\n"
-            f"*Комментарий:* {row[1]}\n",
+            f"*Пользователь:* {row[2]}\n"
+            f"*Комментарий:* {row[3]}\n",
             parse_mode='Markdown'
         )
 
