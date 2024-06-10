@@ -47,12 +47,13 @@ comments_db = CommentsDB()
 
 @bot.message_handler(commands=['start'])
 def start(message):
+    username = message.from_user.username
     # create main menu:
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
     info_button = types.KeyboardButton("Инструкция")
     roles_button = types.KeyboardButton("Специалисты 🧑🏻‍💻")
     feedback_button = types.InlineKeyboardButton("Обратная связь 📨",
-                                                 url="https://t.me/StranaComments_bot")
+                                                 url=f"https://t.me/StranaComments_bot_{username}")
     markup.add(info_button, roles_button, feedback_button)
 
     bot.send_message(message.chat.id, message_view.start_message, reply_markup=markup,
