@@ -70,6 +70,11 @@ def back_to_main_menu(message):
     start(message)
 
 
+@bot.message_handler(func=lambda message: message.text == 'Обратная связь 📨')
+def feedback(message):
+    bot.send_message(message.chat.id, "...")
+
+
 @bot.message_handler(func=lambda message: message.text == 'Специалисты 🧑🏻‍💻')
 def giga_chats_menu(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
