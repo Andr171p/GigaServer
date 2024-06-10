@@ -1,1 +1,1 @@
-worker: python main.py
+GigaServer: python main.py
