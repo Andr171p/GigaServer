@@ -26,21 +26,29 @@ class CommentsDB:
         return self.cursor.fetchone()[0]
 
     def add_user_info(self, user_id, username):
+        self.connect_db()
+
         if not (self.check_user_id_exists(user_id=user_id)):
             self.cursor.execute(
                 "INSERT INTO comments (user_id, username) VALUES (%s, %s)",
                 (user_id, username)
             )
             self.connection.commit()
+
+            self.close_connection()
         else:
             return -1
 
     def add_comment(self, user_id, comment_text):
+        self.connect_db()
+
         self.cursor.execute(
             "UPDATE comments SET comment = %s WHERE user_id = %s",
             (comment_text, user_id)
         )
         self.connection.commit()
+
+        self.close_connection()
 
     def get_db_data(self):
         self.cursor.execute("SELECT * FROM comments")

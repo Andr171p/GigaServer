@@ -51,7 +51,8 @@ def start(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
     info_button = types.KeyboardButton("Инструкция")
     roles_button = types.KeyboardButton("Специалисты 🧑🏻‍💻")
-    feedback_button = types.KeyboardButton("Обратная связь 📨")
+    feedback_button = types.InlineKeyboardButton("Обратная связь 📨",
+                                                 url="https://t.me/StranaComments_bot")
     markup.add(info_button, roles_button, feedback_button)
 
     bot.send_message(message.chat.id, message_view.start_message, reply_markup=markup,
@@ -67,59 +68,6 @@ def about_project(message):
 def back_to_main_menu(message):
     bot.send_message(message.chat.id, message_view.back_message)
     start(message)
-
-
-@bot.message_handler(func=lambda message: message.text == 'Обратная связь 📨')
-def feedback_menu(message):
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    comments_button = types.KeyboardButton("Оставить отзыв")
-    # stars_button = types.KeyboardButton("Поставить оценку")
-    comments_view_button = types.KeyboardButton("Смотреть комментарии")
-    back_button = types.KeyboardButton("Назад ↩")
-    # check user_id for view comments access:
-    if message.from_user.id in get_feedback_access_id():
-        markup.add(comments_button, comments_view_button, back_button)
-    else:
-        markup.add(comments_button, back_button)
-
-    bot.send_message(message.chat.id, "Здесь вы можете предложить свои идеи по улучшению проекта, \n"
-                                      "а также поставить оценку нашему проекту", reply_markup=markup)
-    user_menu[message.chat.id] = "main"
-
-
-@bot.message_handler(func=lambda message: message.text == 'Смотреть комментарии')
-def view_comments(message):
-    comments_db.connect_db()
-    comments_data = comments_db.get_db_data()
-    if len(comments_data) == 0:
-        bot.send_message(message.chat.id, "Пока нет комментариев...")
-    for row in comments_data:
-        time.sleep(1)
-        bot.send_message(
-            message.chat.id,
-            f"*Пользователь:* {row[2]}\n"
-            f"*Комментарий:* {row[3]}\n",
-            parse_mode='Markdown'
-        )
-
-
-@bot.message_handler(func=lambda message: message.text == 'Оставить отзыв')
-def write_comment(message):
-    bot.send_message(message.chat.id, "Мы будем рады каждому оставленному отзыву")
-    bot.register_next_step_handler(message, save_comment)
-
-
-def save_comment(message):
-    user_id = message.chat.id
-    username = message.from_user.username
-
-    upload_feedback_data(
-        user_id=user_id,
-        username=username,
-        comment_text=message.text
-    )
-
-    bot.send_message(user_id, "Благодарим за оставленный отзыв")
 
 
 @bot.message_handler(func=lambda message: message.text == 'Специалисты 🧑🏻‍💻')
