@@ -52,8 +52,7 @@ def start(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
     info_button = types.KeyboardButton("Инструкция")
     roles_button = types.KeyboardButton("Специалисты 🧑🏻‍💻")
-    feedback_button = types.InlineKeyboardButton("Обратная связь 📨",
-                                                 url=f"https://t.me/StranaComments_bot_{username}")
+    feedback_button = types.KeyboardButton("Обратная связь 📨")
     markup.add(info_button, roles_button, feedback_button)
 
     bot.send_message(message.chat.id, message_view.start_message, reply_markup=markup,
@@ -73,7 +72,7 @@ def back_to_main_menu(message):
 
 @bot.message_handler(func=lambda message: message.text == 'Обратная связь 📨')
 def feedback(message):
-    bot.send_message(message.chat.id, "...")
+    bot.send_message(message.chat.id, "https://t.me/StranaComments_bot")
 
 
 @bot.message_handler(func=lambda message: message.text == 'Специалисты 🧑🏻‍💻')
